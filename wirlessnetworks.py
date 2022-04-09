@@ -21,6 +21,27 @@ class WirelessNetworks:
             else:
                 print("This is an invalid entry for sensor Id!")
                 
+    def setOxygen(self):
+        while True:
+            alphaCheck2 = input("Enter the Oxygen level in %: ")
+            if alphaCheck2.isalpha():
+                self._oxygenLevel = alphaCheck2
+                break
+            
+            else:
+                print("This is an invalid entry for the oxygen level!")
+                
+
+    def setTemperature(self):
+        while True:
+            alphaCheck3 = input("Enter the termperature measurement: ")
+            if alphaCheck3.isalpha():
+                self._temperature = alphaCheck3
+                break
+            
+            else:
+                print("This is an invalid entry for the temperature!")
+                
 
 
 
