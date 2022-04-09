@@ -35,15 +35,22 @@ class Application:
                             self._id = alphaCheck
                             for _ in self._id:
                                 while True:
-                                    alphaCheck2 = input("Enter the number of neighbours: ")
-                                    if alphaCheck2.isnumeric():
-                                        self._numNeighbours = alphaCheck2
-                                        return
+                                    try:
+                                        alphaCheck2 = int(input("Enter the number of neighbours: "))
+                                        if(alphaCheck2 < 0):
+                                            print("This is an invalid entry for the number of neighbours!", "\n")
+                                            continue
+                                    except ValueError:
+                                        print("This is an invalid entry for the number of neighbours!", "\n")
+                                        continue
             
                                     else:
-                                        print("This is an invalid entry for the number of neighbours!", "\n")
+                                        self._numNeighbours = countdown(alphaCheck2)
+                                        break
                         else:
                             print("This is an invalid entry for sensor Id!", "\n")
+                            break
+                break
                     
 
                 
