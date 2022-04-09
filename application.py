@@ -10,7 +10,7 @@ class Application:
     
     def __init__(self):
         self._listSensors = [list]
-        self._listNeighbours = [list]
+        self._Neighbours = "A"
         self._id = "A"
         self._numNeighbours = [list]
         
@@ -46,7 +46,29 @@ class Application:
             
                                     else:
                                         self._numNeighbours = countdown(alphaCheck2)
-                                        break
+                                        print(self._numNeighbours)
+                                        for _ in range(len(self._numNeighbours)):
+                                            alphaCheck3 = input("Enter the neighbor for the sensor: ")
+                                            if alphaCheck3.isalpha():
+                                                self._Neighbours = alphaCheck3
+                                                for _ in self._Neighbours:
+                                                    while True:
+                                                        try:
+                                                            numCheck2 = int(input("Enter the distance to the neighbour: "))
+                                                            if(numCheck2 < 0):
+                                                                print("This is an invalid entry for the neighbour's name and/or distance!", "\n")
+                                                                continue
+                                                        except ValueError:
+                                                            print("This is an invalid entry for the neighbour's name and/or distance!", "\n")
+                                                            continue
+                                                        
+                                                        else:
+                                                            break
+                                            
+                                            else:
+                                                print("This is an invalid entry for the neighbour's name and/or distance!", "\n")
+                                                break
+                                    break
                         else:
                             print("This is an invalid entry for sensor Id!", "\n")
                             break
