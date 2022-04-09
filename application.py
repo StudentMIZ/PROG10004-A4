@@ -11,6 +11,8 @@ class Application:
     def __init__(self):
         self._listSensors = [list]
         self._listNeighbours = [list]
+        self._id = "A"
+        self._numNeighbours = [list]
         
         
     def createSensors(self):
@@ -26,7 +28,24 @@ class Application:
             
             else:
                 self._listSensors = countdown(numCheck)
-                break
+                print(self._listSensors)
+                for _ in range(len(self._listSensors)):
+                        alphaCheck = input("Enter the Sensor Id: ")
+                        if alphaCheck.isalpha():
+                            self._id = alphaCheck
+                            for _ in self._id:
+                                while True:
+                                    alphaCheck2 = input("Enter the number of neighbours: ")
+                                    if alphaCheck2.isnumeric():
+                                        self._numNeighbours = alphaCheck2
+                                        return
+            
+                                    else:
+                                        print("This is an invalid entry for the number of neighbours!", "\n")
+                        else:
+                            print("This is an invalid entry for sensor Id!", "\n")
+                    
+
                 
     
     def convertToDictionary(self):
