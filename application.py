@@ -69,9 +69,35 @@ class Application:
                                                 print("This is an invalid entry for the neighbour's name and/or distance!", "\n")
                                                 break
                                     break
+                                for _ in self._id:
+                                    while True:
+                                        try:
+                                            numCheck3 = int(input("Enter the Oxygen level in %: "))
+                                            if(numCheck3 < 0):
+                                                print("This is an invalid entry for the oxygen level!", "\n")
+                                                continue
+                                        except ValueError:
+                                            print("This is an invalid entry for the oxygen level!", "\n")
+                                            continue
+                                                        
+                                        else:
+                                            for _ in self._id:
+                                                while True:
+                                                    try:
+                                                        numCheck4 = int(input("Enter the temperature measurement: "))
+                                                        if(numCheck4 < 0):
+                                                            print("This is an invalid entry for the temperature!")
+                                                            continue
+                                                    except ValueError:
+                                                        print("This is an invalid entry for the temperature!")
+                                                        continue
+                                                    else:
+                                                        break
+                                                    
+                                            break
                         else:
                             print("This is an invalid entry for sensor Id!", "\n")
-                            break
+                            continue
                 break
                     
 
