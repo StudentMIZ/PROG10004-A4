@@ -114,11 +114,29 @@ class Application:
         print(sensorDict)
         for key in sensorDict:
             sensorDict[key] = tuple(input("Enter the sensorId: "))
-            numNeighbours = int(input("Enter the number of neighbours: "))
-            neighbourlist = countdown(numNeighbours)
-            for _ in neighbourlist:
-                sensorDict[key] += (input("Enter the neighbour: "), int(input("Enter the distance to the neighbour: ")))
-                print(sensorDict)
+            while True:
+                try:
+                    numNeighbours = int(input("Enter the number of neighbours: "))
+                    if(numNeighbours < 0):
+                        print("This is an invalid entry for the number of neighbours!")
+                        continue
+                except ValueError:
+                    print("This is an invalid entry for the number of neighbours!")
+                    continue
+                else:
+                    neighbourlist = countdown(numNeighbours)
+                    for _ in neighbourlist:
+                        while True:
+                            try:
+                                sensorDict[key] += (("Neighbour:", (input("Enter the neighbour: "))), ("Distance:", (int(input("Enter the distance to the neighbour: ")))))
+                            except ValueError:
+                                print("This is an invalid entry!")
+                                continue
+                            else:
+                                print(sensorDict)
+                                break
+                    break
+        print(sensorDict)
     
     def findPath(self):
         pass
