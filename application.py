@@ -15,7 +15,7 @@ class Application:
     def __init__(self):                                                                                             #class constructor with all needed attributes
         self._listSensors = [list]
         self._Neighbours = "A"
-        self._id = "A"
+        self._id = []
         self._numNeighbours = [list]
         
         
@@ -36,8 +36,9 @@ class Application:
                 for _ in range(len(self._listSensors)):                                                             #will repeat the following commands for each value in the sensor list
                         alphaCheck = input("Enter the Sensor Id: ")                                                 #asks user to input the sensor Id for the given sensor
                         if alphaCheck.isalpha():
-                            self._id = alphaCheck
-                            for _ in self._id:                                                                      #once user has inputted a valid id, it runs the next commands
+                            self._id.extend(alphaCheck)
+                            print(self._id)
+                            for _ in alphaCheck:                                                                      #once user has inputted a valid id, it runs the next commands
                                 while True:                                                                         #while loop is used to look out for errors on user's part
                                     try:
                                         alphaCheck2 = int(input("Enter the number of neighbours: "))                #asks the user for the number of neighbours for each sensor
@@ -73,7 +74,7 @@ class Application:
                                                 print("This is an invalid entry for the neighbour's name and/or distance!", "\n")
                                                 continue
                                     break
-                                for _ in self._id:
+                                for _ in alphaCheck:
                                     while True:
                                         try:
                                             numCheck3 = int(input("Enter the Oxygen level in %: "))
@@ -85,7 +86,7 @@ class Application:
                                             continue
                                                         
                                         else:
-                                            for _ in self._id:
+                                            for _ in alphaCheck:
                                                 while True:
                                                     try:
                                                         numCheck4 = int(input("Enter the temperature measurement: "))
@@ -109,11 +110,10 @@ class Application:
     
     def convertToDictionary(self):
         sensorDict = {}
-        for _ in self._listSensors:
-            sensorDict[_] = None
+        for _ in self._id:
+            sensorDict[_] = []
         print(sensorDict)
         for key in sensorDict:
-            sensorDict[key] = tuple(input("Enter the sensorId: "))
             while True:
                 try:
                     numNeighbours = int(input("Enter the number of neighbours: "))
@@ -128,7 +128,7 @@ class Application:
                     for _ in neighbourlist:
                         while True:
                             try:
-                                sensorDict[key] += (("Neighbour:", (input("Enter the neighbour: "))), ("Distance:", (int(input("Enter the distance to the neighbour: ")))))
+                                sensorDict[key] += (input("Enter the neighbour: ")), (int(input("Enter the distance to the neighbour: ")))
                             except ValueError:
                                 print("This is an invalid entry!")
                                 continue
@@ -138,11 +138,15 @@ class Application:
                     break
         print(sensorDict)
     
-    def findPath(self):
+    def findPath(self, graph, start, end, path):
         pass
+    
+        newPath = findPath(graph, chosenNode, end, path)
     
 obj1 = Application()
 obj1.createSensors()
 obj1.convertToDictionary()
 
-
+graph = {'A': ['B', 15.0, 'C', 12.0], 'B': ['A', 15.0, 'D', 4.0, 'E', 9.0], 'C': ['A', 12.0], 'D': ['B', 4.0, 'F', 1.0], 'E': ['B', 9.0, 'F', 2.0], 'F': ['D', 1.0, 'E', 2.0]}
+#this is how the dictionary should look like
+#base case when start is equal to end, maximum distance, chosen node; newpath = findPath(graph, chosenNode, end, path)
