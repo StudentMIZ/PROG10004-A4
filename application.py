@@ -34,6 +34,7 @@ class Application:
                 self._listSensors = countdown(numCheck)                                                             #makes a list of sensors, using the countdown method and based on the user's input
                 print(self._listSensors)
                 for _ in range(len(self._listSensors)):                                                             #will repeat the following commands for each value in the sensor list
+                    while True: 
                         alphaCheck = input("Enter the Sensor Id: ")                                                 #asks user to input the sensor Id for the given sensor
                         if alphaCheck.isalpha():
                             self._id.extend(alphaCheck)
@@ -53,26 +54,28 @@ class Application:
                                         self._numNeighbours = countdown(alphaCheck2)                                #will create a list of the given sensor's neighbours so that the following command will run for each value in that list
                                         print(self._numNeighbours)
                                         for _ in range(len(self._numNeighbours)):                                   #will run based on the value in the list made earlier
-                                            alphaCheck3 = input("Enter the neighbor for the sensor: ")              #asks the user to input the neighbour for the given sensor
-                                            if alphaCheck3.isalpha():                                               #will make sure the user inputted a letter or a string of letters
-                                                self._Neighbours = alphaCheck3
-                                                for _ in self._Neighbours:                                          #will run for each neighbour for the given sensor
-                                                    while True:
-                                                        try:
-                                                            numCheck2 = int(input("Enter the distance to the neighbour: "))
-                                                            if(numCheck2 < 0):
+                                            while True:
+                                                alphaCheck3 = input("Enter the neighbor for the sensor: ")              #asks the user to input the neighbour for the given sensor
+                                                if alphaCheck3.isalpha():                                               #will make sure the user inputted a letter or a string of letters
+                                                    self._Neighbours = alphaCheck3
+                                                    for _ in self._Neighbours:                                          #will run for each neighbour for the given sensor
+                                                        while True:
+                                                            try:
+                                                                numCheck2 = int(input("Enter the distance to the neighbour: "))
+                                                                if(numCheck2 < 0):
+                                                                    print("This is an invalid entry for the neighbour's name and/or distance!", "\n")
+                                                                    continue
+                                                            except ValueError:
                                                                 print("This is an invalid entry for the neighbour's name and/or distance!", "\n")
                                                                 continue
-                                                        except ValueError:
-                                                            print("This is an invalid entry for the neighbour's name and/or distance!", "\n")
-                                                            continue
                                                         
-                                                        else:
-                                                            break
+                                                            else:
+                                                                break
                                             
-                                            else:
-                                                print("This is an invalid entry for the neighbour's name and/or distance!", "\n")
-                                                continue
+                                                    break
+                                                else:
+                                                    print("This is an invalid entry for the neighbour's name and/or distance!", "\n")
+                                                    continue
                                     break
                                 for _ in alphaCheck:
                                     while True:
@@ -100,6 +103,7 @@ class Application:
                                                         break
                                                     
                                             break
+                            break
                         else:
                             print("This is an invalid entry for sensor Id!", "\n")
                             continue
