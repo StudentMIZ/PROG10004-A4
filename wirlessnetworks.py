@@ -54,10 +54,3 @@ class WirelessNetworks:
             
             else:
                 print("This is an invalid entry for the temperature!", "\n")    #informs the user of an invalid entry
-                
-
-
-
-
-obj = WirelessNetworks()
-obj.greetMessage()
