@@ -45,13 +45,12 @@ class Application:
             
             else:                                                                                                       #if not an error, it will run the following commands
                 self._listSensors = countdown(numCheck)                                                                 #makes a list of sensors, using the countdown method and based on the user's input
-                print(self._listSensors)
                 for _ in range(len(self._listSensors)):                                                                 #will repeat the following commands for each value in the sensor list
+                    print("\n")
                     while True: 
                         alphaCheck = input("Enter the Sensor Id: ")                                                     #asks user to input the sensor Id for the given sensor
                         if alphaCheck.isalpha():
                             self._id.extend(alphaCheck)
-                            print(self._id)
                             for _ in alphaCheck:                                                                        #once user has inputted a valid id, it runs the next commands
                                 while True:                                                                             #while loop is used to look out for errors on user's part
                                     try:
@@ -65,7 +64,6 @@ class Application:
             
                                     else:
                                         self._numNeighbours = countdown(alphaCheck2)                                    #will create a list of the given sensor's neighbours so that the following command will run for each value in that list
-                                        print(self._numNeighbours)
                                         for _ in range(len(self._numNeighbours)):                                       #will run based on the value in the list made earlier
                                             while True:
                                                 alphaCheck3 = input("Enter the neighbor for the sensor: ")              #asks the user to input the neighbour for the given sensor
@@ -154,11 +152,11 @@ class Application:
         sensorDict = {}                                                                                         #sensorDict that is an empty list, that will be filled with values later
         for _ in self._id:                                                                                      #for loop to go over each sensor id inputted by the user during the createSensors function
             sensorDict[_] = []                                                                                  #for everything in the selfid list, a key is made using the values
-        print(sensorDict)
+        print(sensorDict, "\n")
         for key in sensorDict:                                                                                  #for loop to go over each key now in the sensorDict
             while True:                                                                                         #while loop to repeat the nested loop as long as the condition remains True, helps with exception handling
                 try:
-                    print("\n", "Sensor", key)
+                    print("Sensor", key)
                     numNeighbours = int(input("Enter the number of neighbours: "))                              #asks the user to input the number of neighbours for the given id
                     if(numNeighbours < 0):                                                                      #if loop used to make sure a valid entry is made
                         print("This is an invalid entry for the number of neighbours!")                         #informs the user of an invalid entry
@@ -176,10 +174,9 @@ class Application:
                                 print("This is an invalid entry!")
                                 continue
                             else:
-                                print(sensorDict)
+                                print(sensorDict, "\n")
                                 break                                                                           #breaks the for loop once all values are inputted, bringing it back to the next sensor ID 
                     break
-        print(sensorDict)
         if __name__ == "__main__":
             graph = sensorDict                                                                                  #graph variable is equal to the earlier made sensorDict dictionary
         self.findPath(input("Enter the source sensor: "), input("Enter the destination sensor: "), graph)       #asks the user to input the source and destination sensor
@@ -188,6 +185,7 @@ class Application:
 
         
 obj = WirelessNetworks()                                                #creats an object of the class 'WirelessNetwors', mainly made to call the greetingMessage function
+obj.greetMessage()
         
 obj1 = Application()                                                    #creats an object of the class 'Application'
 obj1.createSensors()                                                    #calls the 'createSensors' method
