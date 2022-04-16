@@ -27,7 +27,7 @@ class Application:
     sensorDict = {}
     def __init__(self):                                                                                                 #class constructor with all needed attributes
         self._listSensors = [list]
-        self._Neighbours = "A"
+        self._neighbours = "A"
         self._id = []
         self._numNeighbours = [list]
         
@@ -68,8 +68,8 @@ class Application:
                                             while True:
                                                 alphaCheck3 = input("Enter the neighbor for the sensor: ")              #asks the user to input the neighbour for the given sensor
                                                 if alphaCheck3.isalpha():                                               #will make sure the user inputted a letter or a string of letters
-                                                    self._Neighbours = alphaCheck3
-                                                    for _ in self._Neighbours:                                          #will run for each neighbour for the given sensor
+                                                    self._neighbours = alphaCheck3
+                                                    for _ in self._neighbours:                                          #will run for each neighbour for the given sensor
                                                         while True:
                                                             try:
                                                                 numCheck2 = int(input("Enter the distance to the neighbour: "))                                 #asks the user to input the distance to the given neighbour
