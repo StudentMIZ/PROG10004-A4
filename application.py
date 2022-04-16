@@ -11,6 +11,8 @@ percentage level saturated in the blood cells (SpO2), and 6) the temperature mea
 each sensor. Afterwards, the application will ask the users to enter the source sensor Id and 
 destination sensor Id to route a message and will print the traversed path and the entire graph.'''
 
+from wirlessnetworks import WirelessNetworks                                                                            #imports the class 'WirelessNetworks' from the wirelessnetworks.py file
+
 
 def countdown(end):                                                                                                     # defines and declares function 'countdown', which is used to create a list of integer values up to the number the user inputted when asked
     i = 1                                                                                                               # sets the counter to 1, don't want to include 0 in the list as there is no 'Sensor 0'
@@ -185,11 +187,10 @@ class Application:
         
 
         
-         
-obj1 = Application()
-obj1.createSensors()
-obj1.convertToDictionary()
+
+        
+obj1 = Application()                                                    #creats an object of the class 'Application'
+obj1.createSensors()                                                    #calls the 'createSensors' method
+obj1.convertToDictionary()                                              #calls the 'convertToDictionary' mehtod
 
 
-
-#base case when start is equal to end, maximum distance, chosen node; newpath = findPath(graph, chosenNode, end, path)
