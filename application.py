@@ -187,7 +187,7 @@ class Application:
         
 
         
-
+obj = WirelessNetworks()                                                #creats an object of the class 'WirelessNetwors', mainly made to call the greetingMessage function
         
 obj1 = Application()                                                    #creats an object of the class 'Application'
 obj1.createSensors()                                                    #calls the 'createSensors' method
